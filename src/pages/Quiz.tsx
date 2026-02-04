@@ -164,9 +164,9 @@ const Quiz = () => {
       </main>
 
       {/* Footer - compact */}
-      <footer className="py-2 px-4 text-center flex-shrink-0">
+      <footer className="py-2 px-4 text-center flex-shrink-0 border-t border-border/30">
         <p className="text-[10px] sm:text-xs text-muted-foreground">
-          +77 mil seguidores • 50 mil+ caixas enviadas
+          © 2025 Campo das Orquídeas. CNPJ: 28.882.950/0001-06 | São Paulo - Brasil
         </p>
       </footer>
     </div>
