@@ -102,28 +102,28 @@ const Quiz = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero flex flex-col">
-      {/* Header */}
-      <header className="py-3 sm:py-4 px-4 border-b border-border/50 bg-background/80 backdrop-blur-sm sticky top-0 z-10">
-        <div className="container mx-auto flex items-center justify-center">
-          <div className="flex items-center gap-2">
-            <Leaf className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-            <span className="font-display text-lg sm:text-xl font-bold text-foreground">
+    <div className="h-[100dvh] bg-gradient-hero flex flex-col overflow-hidden">
+      {/* Header - compact */}
+      <header className="py-2 px-4 border-b border-border/50 bg-background/80 backdrop-blur-sm flex-shrink-0">
+        <div className="flex items-center justify-center">
+          <div className="flex items-center gap-1.5">
+            <Leaf className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+            <span className="font-display text-base sm:text-lg font-bold text-foreground">
               Campo das Orquídeas
             </span>
           </div>
         </div>
       </header>
 
-      {/* Main content */}
-      <main className="flex-1 flex items-center justify-center p-4 py-6 sm:py-8">
-        <div className="w-full max-w-xl">
+      {/* Main content - fills available space */}
+      <main className="flex-1 flex flex-col p-3 sm:p-4 overflow-hidden">
+        <div className="w-full max-w-xl mx-auto flex flex-col flex-1">
           {!showResult ? (
             <>
               <QuizProgress currentStep={currentStep} totalSteps={totalSteps} />
               
-              <div className="bg-card rounded-2xl shadow-elevated overflow-hidden">
-                <div className="p-5 sm:p-6 md:p-8">
+              <div className="bg-card rounded-2xl shadow-elevated overflow-hidden flex-1 flex flex-col">
+                <div className="p-4 sm:p-6 md:p-8 flex flex-col flex-1">
                   <QuizQuestion
                     question={currentQuestion.question}
                     options={currentQuestion.options}
@@ -135,7 +135,7 @@ const Quiz = () => {
                   {currentStep > 1 && (
                     <button
                       onClick={handleBack}
-                      className="mt-6 text-sm text-muted-foreground hover:text-foreground transition-colors mx-auto block hover:underline"
+                      className="mt-3 sm:mt-4 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors mx-auto block hover:underline flex-shrink-0"
                     >
                       ← Voltar
                     </button>
@@ -144,17 +144,17 @@ const Quiz = () => {
               </div>
             </>
           ) : (
-            <div className="bg-card rounded-2xl shadow-elevated p-5 sm:p-6 md:p-8">
+            <div className="bg-card rounded-2xl shadow-elevated p-4 sm:p-6 md:p-8 flex-1 overflow-auto">
               <QuizResult onContinue={handleContinue} />
             </div>
           )}
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="py-4 px-4 text-center">
-        <p className="text-xs sm:text-sm text-muted-foreground">
-          +77 mil seguidores no Instagram • Mais de 50 mil caixas enviadas
+      {/* Footer - compact */}
+      <footer className="py-2 px-4 text-center flex-shrink-0">
+        <p className="text-[10px] sm:text-xs text-muted-foreground">
+          +77 mil seguidores • 50 mil+ caixas enviadas
         </p>
       </footer>
     </div>
