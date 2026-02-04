@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Star, Award, Leaf } from "lucide-react";
 import heroOrchids from "@/assets/hero-orchids.jpg";
+import { memo } from "react";
 
 const HeroSection = () => {
   return (
@@ -78,6 +79,9 @@ const HeroSection = () => {
                   src={heroOrchids}
                   alt="Kit 5 Mudas de Cattleyas"
                   className="relative w-full max-w-lg mx-auto rounded-2xl shadow-elevated"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                 />
                 <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-card rounded-xl shadow-soft p-3 sm:p-4 animate-float">
                   <div className="flex items-center gap-2">
@@ -111,4 +115,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default memo(HeroSection);

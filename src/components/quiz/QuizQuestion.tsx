@@ -18,12 +18,14 @@ const QuizQuestion = ({ question, options, selectedOption, onSelect, image }: Qu
   return (
     <div className="animate-fade-in-up flex flex-col h-full">
       {/* Question Image - full display */}
-      {image && (
+{image && (
         <div className="mb-3 sm:mb-4 -mx-4 -mt-4 sm:-mx-6 sm:-mt-6 md:-mx-8 md:-mt-8 rounded-t-2xl overflow-hidden bg-secondary/30">
           <img 
             src={image} 
             alt="" 
             className="w-full h-40 sm:h-52 md:h-64 object-contain"
+            loading="eager"
+            decoding="async"
           />
         </div>
       )}
