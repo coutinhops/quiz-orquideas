@@ -1,5 +1,6 @@
 import { Sun, Droplets, Flower, TreeDeciduous } from "lucide-react";
 import careItemsImg from "@/assets/care-items.jpg";
+import LazyImage from "./LazyImage";
 
 const CareSection = () => {
   const careSteps = [
@@ -86,13 +87,11 @@ const CareSection = () => {
                 </li>
               </ul>
             </div>
-            <div>
-              <img
-                src={careItemsImg}
-                alt="Materiais para cultivo de orquídeas"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <LazyImage
+              src={careItemsImg}
+              alt="Materiais para cultivo de orquídeas"
+              className="w-full h-full object-cover min-h-[200px]"
+            />
           </div>
         </div>
       </div>
