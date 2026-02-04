@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Leaf } from "lucide-react";
 import QuizProgress from "@/components/quiz/QuizProgress";
 import QuizQuestion from "@/components/quiz/QuizQuestion";
 import QuizResult from "@/components/quiz/QuizResult";
+import logo from "@/assets/logo.png";
 
 // Import quiz images
 import question1Image from "@/assets/quiz/question-1-profile.jpg";
@@ -106,12 +106,9 @@ const Quiz = () => {
       {/* Header - compact */}
       <header className="py-2 px-4 border-b border-border/50 bg-background/80 backdrop-blur-sm flex-shrink-0">
         <div className="flex items-center justify-center">
-          <div className="flex items-center gap-1.5">
-            <Leaf className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-            <span className="font-display text-base sm:text-lg font-bold text-foreground">
-              Campo das Orquídeas
-            </span>
-          </div>
+          <a href="/">
+            <img src={logo} alt="Campo das Orquídeas" className="h-8 sm:h-10" />
+          </a>
         </div>
       </header>
 
