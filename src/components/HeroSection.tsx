@@ -16,16 +16,24 @@ const HeroSection = () => {
               </span>
             </div>
             
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
-              Kit 5 Mudinhas de{" "}
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 leading-tight">
+              <span className="text-primary">Kit Gratuito</span> – 5 Mudinhas de{" "}
               <span className="text-primary">Cattleyas</span>
             </h1>
-            
-            <p className="text-lg text-muted-foreground mb-6 max-w-lg">
-              Transforme seu jardim com estas magníficas orquídeas Cattleya. 
-              Mudas selecionadas de sementeira, prontas para florescer e 
-              encantar seu espaço com cores vibrantes.
+            <p className="text-lg font-medium text-orchid-gold mb-6">
+              Condição especial para novos clientes
             </p>
+            
+            <div className="text-muted-foreground mb-8 max-w-lg space-y-4">
+              <p className="text-lg">
+                Este kit faz parte de uma condição especial liberada para novos clientes 
+                conhecerem nosso padrão de cultivo e envio.
+              </p>
+              <p>
+                As mudas são selecionadas, saudáveis e preparadas para transporte, 
+                ideais para quem está começando ou quer ampliar sua coleção com baixo risco.
+              </p>
+            </div>
 
             <div className="flex flex-wrap gap-4 mb-8">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -39,30 +47,23 @@ const HeroSection = () => {
             </div>
 
             {/* Price */}
-            <div className="mb-8">
-              <div className="flex items-baseline gap-3">
-                <span className="font-display text-5xl font-bold text-primary">R$ 60</span>
-                <span className="text-muted-foreground">,00</span>
+            <div className="mb-8 bg-secondary/50 rounded-xl p-5">
+              <p className="text-sm text-muted-foreground mb-2">
+                Valor das mudas: <span className="line-through">R$ 60,00</span>
+              </p>
+              <div className="flex items-baseline gap-2 mb-3">
+                <span className="text-sm text-muted-foreground">Hoje:</span>
+                <span className="font-display text-4xl font-bold text-primary">R$ 0,00</span>
+                <span className="text-sm text-orchid-gold font-medium">(condição especial)</span>
               </div>
-              <p className="text-sm text-muted-foreground mt-1">
-                Em até <span className="font-semibold text-foreground">3x de R$ 20,00</span> sem juros
+              <p className="text-sm text-foreground">
+                Você paga apenas o frete para sua região, calculado no próximo passo.
               </p>
             </div>
 
-            {/* Points badge */}
-            <div className="bg-orchid-gold/10 border border-orchid-gold/30 rounded-lg p-3 mb-6 inline-flex items-center gap-2">
-              <Star className="w-5 h-5 text-orchid-gold fill-orchid-gold" />
-              <span className="text-sm">
-                Compre agora e ganhe <span className="font-bold text-orchid-gold">60 Pontos!</span>
-              </span>
-            </div>
-
             <div className="flex flex-wrap gap-4">
-              <Button variant="hero" size="xl" asChild>
-                <a href="#comprar">Comprar Agora</a>
-              </Button>
-              <Button variant="outline-primary" size="xl" asChild>
-                <a href="#cuidados">Saiba Mais</a>
+              <Button variant="hero" size="xl" className="shadow-lg shadow-primary/30" asChild>
+                <a href="#comprar">Receber minhas mudas pagando só o frete</a>
               </Button>
             </div>
           </div>
