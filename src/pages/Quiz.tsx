@@ -137,21 +137,13 @@ const Quiz = () => {
               <div className="bg-card rounded-2xl shadow-elevated overflow-hidden flex-1 flex flex-col">
                 <div className="p-4 sm:p-6 md:p-8 flex flex-col flex-1">
                   <QuizQuestion
+                    key={currentStep}
                     question={currentQuestion.question}
                     options={currentQuestion.options}
                     selectedOption={answers[currentStep] || null}
                     onSelect={handleSelect}
                     image={currentQuestion.image}
                   />
-
-                  {currentStep > 1 && (
-                    <button
-                      onClick={handleBack}
-                      className="mt-3 sm:mt-4 text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors mx-auto block hover:underline flex-shrink-0"
-                    >
-                      ← Voltar
-                    </button>
-                  )}
                 </div>
               </div>
             </>
