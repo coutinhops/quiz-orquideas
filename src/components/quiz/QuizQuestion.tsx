@@ -17,13 +17,13 @@ interface QuizQuestionProps {
 const QuizQuestion = ({ question, options, selectedOption, onSelect, image }: QuizQuestionProps) => {
   return (
     <div className="animate-fade-in-up flex flex-col h-full">
-      {/* Question Image - larger display */}
+      {/* Question Image - full display */}
       {image && (
-        <div className="mb-3 sm:mb-4 -mx-4 -mt-4 sm:-mx-6 sm:-mt-6 md:-mx-8 md:-mt-8 rounded-t-2xl overflow-hidden">
+        <div className="mb-3 sm:mb-4 -mx-4 -mt-4 sm:-mx-6 sm:-mt-6 md:-mx-8 md:-mt-8 rounded-t-2xl overflow-hidden bg-secondary/30">
           <img 
             src={image} 
             alt="" 
-            className="w-full h-32 sm:h-44 md:h-56 object-cover"
+            className="w-full h-40 sm:h-52 md:h-64 object-contain"
           />
         </div>
       )}
