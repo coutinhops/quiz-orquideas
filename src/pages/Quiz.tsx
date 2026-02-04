@@ -1,15 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Leaf } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import QuizProgress from "@/components/quiz/QuizProgress";
 import QuizQuestion from "@/components/quiz/QuizQuestion";
 import QuizResult from "@/components/quiz/QuizResult";
+
+// Import quiz images
+import question1Image from "@/assets/quiz/question-1-profile.jpg";
+import question2Image from "@/assets/quiz/question-2-objection.jpg";
+import question3Image from "@/assets/quiz/question-3-location.jpg";
+import question4Image from "@/assets/quiz/question-4-routine.jpg";
+import question5Image from "@/assets/quiz/question-5-commitment.jpg";
 
 const quizQuestions = [
   {
     id: 1,
     question: "Qual dessas opções mais se parece com você hoje?",
+    image: question1Image,
     options: [
       { id: "beginner", text: "Nunca tive orquídeas, mas quero começar agora" },
       { id: "intermediate", text: "Já tive algumas, mas nem sempre dão certo" },
@@ -19,6 +26,7 @@ const quizQuestions = [
   {
     id: 2,
     question: "O que mais te impede de ter mais orquídeas hoje?",
+    image: question2Image,
     options: [
       { id: "fear", text: "Medo de comprar e a planta não sobreviver" },
       { id: "price", text: "Preço alto para algo que posso errar" },
@@ -29,6 +37,7 @@ const quizQuestions = [
   {
     id: 3,
     question: "Em qual região do Brasil você mora?",
+    image: question3Image,
     options: [
       { id: "sul", text: "Sul" },
       { id: "sudeste", text: "Sudeste" },
@@ -40,6 +49,7 @@ const quizQuestions = [
   {
     id: 4,
     question: "Quanto tempo você consegue dedicar ao cuidado das plantas?",
+    image: question4Image,
     options: [
       { id: "little", text: "Pouco tempo, rotina bem corrida" },
       { id: "moderate", text: "Um tempo moderado durante a semana" },
@@ -49,6 +59,7 @@ const quizQuestions = [
   {
     id: 5,
     question: "Se pudesse receber mudas saudáveis pagando apenas o frete, você testaria?",
+    image: question5Image,
     options: [
       { id: "yes", text: "Sim, com certeza" },
       { id: "yes-trusted", text: "Sim, desde que seja de um orquidário confiável" },
@@ -93,11 +104,11 @@ const Quiz = () => {
   return (
     <div className="min-h-screen bg-gradient-hero flex flex-col">
       {/* Header */}
-      <header className="py-4 px-4 border-b border-border/50 bg-background/80 backdrop-blur-sm">
+      <header className="py-3 sm:py-4 px-4 border-b border-border/50 bg-background/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="container mx-auto flex items-center justify-center">
           <div className="flex items-center gap-2">
-            <Leaf className="w-6 h-6 text-primary" />
-            <span className="font-display text-xl font-bold text-foreground">
+            <Leaf className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+            <span className="font-display text-lg sm:text-xl font-bold text-foreground">
               Campo das Orquídeas
             </span>
           </div>
@@ -105,32 +116,35 @@ const Quiz = () => {
       </header>
 
       {/* Main content */}
-      <main className="flex-1 flex items-center justify-center p-4">
+      <main className="flex-1 flex items-center justify-center p-4 py-6 sm:py-8">
         <div className="w-full max-w-xl">
           {!showResult ? (
             <>
               <QuizProgress currentStep={currentStep} totalSteps={totalSteps} />
               
-              <div className="bg-card rounded-2xl shadow-elevated p-6 md:p-8">
-                <QuizQuestion
-                  question={currentQuestion.question}
-                  options={currentQuestion.options}
-                  selectedOption={answers[currentStep] || null}
-                  onSelect={handleSelect}
-                />
+              <div className="bg-card rounded-2xl shadow-elevated overflow-hidden">
+                <div className="p-5 sm:p-6 md:p-8">
+                  <QuizQuestion
+                    question={currentQuestion.question}
+                    options={currentQuestion.options}
+                    selectedOption={answers[currentStep] || null}
+                    onSelect={handleSelect}
+                    image={currentQuestion.image}
+                  />
 
-                {currentStep > 1 && (
-                  <button
-                    onClick={handleBack}
-                    className="mt-6 text-sm text-muted-foreground hover:text-foreground transition-colors mx-auto block"
-                  >
-                    ← Voltar
-                  </button>
-                )}
+                  {currentStep > 1 && (
+                    <button
+                      onClick={handleBack}
+                      className="mt-6 text-sm text-muted-foreground hover:text-foreground transition-colors mx-auto block hover:underline"
+                    >
+                      ← Voltar
+                    </button>
+                  )}
+                </div>
               </div>
             </>
           ) : (
-            <div className="bg-card rounded-2xl shadow-elevated p-6 md:p-8">
+            <div className="bg-card rounded-2xl shadow-elevated p-5 sm:p-6 md:p-8">
               <QuizResult onContinue={handleContinue} />
             </div>
           )}
@@ -139,7 +153,7 @@ const Quiz = () => {
 
       {/* Footer */}
       <footer className="py-4 px-4 text-center">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-xs sm:text-sm text-muted-foreground">
           +77 mil seguidores no Instagram • Mais de 50 mil caixas enviadas
         </p>
       </footer>
