@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Truck, ShieldCheck } from "lucide-react";
 import QuizProgress from "@/components/quiz/QuizProgress";
 import QuizQuestion from "@/components/quiz/QuizQuestion";
 import QuizResult from "@/components/quiz/QuizResult";
@@ -103,11 +104,25 @@ const Quiz = () => {
 
   return (
     <div className="h-[100dvh] bg-gradient-hero flex flex-col overflow-hidden">
+      {/* Authority bar */}
+      <div className="bg-primary text-primary-foreground py-1.5 flex-shrink-0">
+        <div className="container mx-auto px-4 flex items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm">
+          <div className="flex items-center gap-1.5">
+            <Truck className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <span>Entrega Garantida em todo Brasil</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <span>Você está Seguro!</span>
+          </div>
+        </div>
+      </div>
+
       {/* Header - compact */}
       <header className="py-2 px-4 border-b border-border/50 bg-background/80 backdrop-blur-sm flex-shrink-0">
         <div className="flex items-center justify-center">
           <a href="/">
-            <img src={logo} alt="Campo das Orquídeas" className="h-8 sm:h-10" />
+            <img src={logo} alt="Campo das Orquídeas" className="h-7 sm:h-9" />
           </a>
         </div>
       </header>
