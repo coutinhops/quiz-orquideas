@@ -16,23 +16,23 @@ interface QuizQuestionProps {
 
 const QuizQuestion = ({ question, options, selectedOption, onSelect, image }: QuizQuestionProps) => {
   return (
-    <div className="animate-fade-in-up">
-      {/* Question Image */}
+    <div className="animate-fade-in-up flex flex-col h-full">
+      {/* Question Image - smaller on mobile */}
       {image && (
-        <div className="mb-6 -mx-6 -mt-6 md:-mx-8 md:-mt-8 rounded-t-2xl overflow-hidden">
+        <div className="mb-3 sm:mb-4 -mx-4 -mt-4 sm:-mx-6 sm:-mt-6 md:-mx-8 md:-mt-8 rounded-t-2xl overflow-hidden">
           <img 
             src={image} 
             alt="" 
-            className="w-full h-40 sm:h-48 md:h-56 object-cover"
+            className="w-full h-24 sm:h-36 md:h-48 object-cover"
           />
         </div>
       )}
 
-      <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-6 text-center leading-tight">
+      <h2 className="font-display text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-3 sm:mb-4 text-center leading-tight">
         {question}
       </h2>
       
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3 flex-1">
         {options.map((option) => {
           const isSelected = selectedOption === option.id;
           
@@ -41,28 +41,28 @@ const QuizQuestion = ({ question, options, selectedOption, onSelect, image }: Qu
               key={option.id}
               onClick={() => onSelect(option.id)}
               className={cn(
-                "w-full p-4 sm:p-5 rounded-xl border-2 text-left transition-all duration-300",
-                "hover:border-primary hover:bg-primary/10 hover:scale-[1.02] hover:shadow-md",
+                "w-full p-3 sm:p-4 rounded-xl border-2 text-left transition-all duration-300",
+                "hover:border-primary hover:bg-primary/10 hover:scale-[1.01] hover:shadow-md",
                 "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
                 "active:scale-[0.98]",
                 isSelected
-                  ? "border-primary bg-primary/15 shadow-lg scale-[1.02]"
+                  ? "border-primary bg-primary/15 shadow-lg scale-[1.01]"
                   : "border-border bg-card"
               )}
             >
-              <div className="flex items-center gap-3 sm:gap-4">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <div
                   className={cn(
-                    "w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-300",
+                    "w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-300",
                     isSelected
-                      ? "border-primary bg-primary text-primary-foreground scale-110"
+                      ? "border-primary bg-primary text-primary-foreground"
                       : "border-muted-foreground/30 bg-background"
                   )}
                 >
-                  {isSelected && <Check className="w-4 h-4 sm:w-5 sm:h-5" />}
+                  {isSelected && <Check className="w-3 h-3 sm:w-4 sm:h-4" />}
                 </div>
                 <span className={cn(
-                  "text-base sm:text-lg leading-snug",
+                  "text-sm sm:text-base leading-snug",
                   isSelected ? "text-foreground font-semibold" : "text-muted-foreground"
                 )}>
                   {option.text}
