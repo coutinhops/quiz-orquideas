@@ -9,8 +9,8 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <ShippingSection />
         <CareSection />
+        <ShippingSection />
       </main>
     </div>
   );
