@@ -1,4 +1,5 @@
 import { Flower2, ShieldCheck, Truck } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   return (
@@ -24,12 +25,9 @@ const Header = () => {
       {/* Main header */}
       <nav className="bg-card py-4 shadow-soft">
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Flower2 className="w-8 h-8 text-primary" />
-            <span className="font-display text-2xl font-semibold text-foreground">
-              Campo das Orquídeas
-            </span>
-          </div>
+          <a href="/" className="flex items-center">
+            <img src={logo} alt="Campo das Orquídeas" className="h-10 md:h-12" />
+          </a>
           <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
             <a href="#produto" className="hover:text-primary transition-colors">Produto</a>
             <a href="#cuidados" className="hover:text-primary transition-colors">Cuidados</a>
