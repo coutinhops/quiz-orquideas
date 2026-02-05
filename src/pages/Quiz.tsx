@@ -103,7 +103,7 @@ const Quiz = () => {
   };
 
   return (
-    <div className="h-[100dvh] bg-gradient-hero flex flex-col overflow-hidden">
+    <div className={`bg-gradient-hero flex flex-col ${showResult ? 'min-h-[100dvh] overflow-y-auto' : 'h-[100dvh] overflow-hidden'}`}>
       {/* Authority bar */}
       <div className="bg-primary text-primary-foreground py-1.5 flex-shrink-0">
         <div className="container mx-auto px-4 flex items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm">
