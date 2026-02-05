@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Truck, ShieldCheck } from "lucide-react";
 import QuizProgress from "@/components/quiz/QuizProgress";
@@ -12,6 +12,9 @@ import question2Image from "@/assets/quiz/question-2-objection.jpg";
 import question3Image from "@/assets/quiz/question-3-location.jpg";
 import question4Image from "@/assets/quiz/question-4-routine.jpg";
 import question5Image from "@/assets/quiz/question-5-commitment.jpg";
+
+// Array for preloading
+const quizImages = [question1Image, question2Image, question3Image, question4Image, question5Image];
 
 const quizQuestions = [
   {
@@ -77,6 +80,14 @@ const Quiz = () => {
 
   const currentQuestion = quizQuestions[currentStep - 1];
   const totalSteps = quizQuestions.length;
+
+  // Preload next quiz image for instant transitions
+  useEffect(() => {
+    if (currentStep < totalSteps) {
+      const nextImage = new Image();
+      nextImage.src = quizImages[currentStep]; // currentStep is 1-indexed, so this gets the next image
+    }
+  }, [currentStep, totalSteps]);
 
   const handleSelect = (optionId: string) => {
     setAnswers((prev) => ({ ...prev, [currentStep]: optionId }));
