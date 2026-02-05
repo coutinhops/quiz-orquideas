@@ -4,6 +4,8 @@ import heroOrchids from "@/assets/hero-orchids.jpg";
 import { memo } from "react";
 
 const HeroSection = () => {
+  const checkoutUrl = "https://pay.campodasorquideas.shop/5pjw3RmJWlvg2lQ";
+
   return (
     <>
       <section className="bg-gradient-hero py-8 sm:py-12 md:py-20 overflow-hidden pb-24 sm:pb-12">
@@ -66,7 +68,7 @@ const HeroSection = () => {
               {/* Desktop CTA */}
               <div className="hidden sm:flex flex-wrap gap-4">
                 <Button variant="hero" size="xl" className="shadow-lg shadow-primary/30" asChild>
-                  <a href="#comprar">Receber minhas mudas pagando só o frete</a>
+                  <a href={checkoutUrl}>Receber minhas mudas pagando só o frete</a>
                 </Button>
               </div>
             </div>
@@ -108,7 +110,7 @@ const HeroSection = () => {
           className="w-full shadow-xl shadow-primary/40 text-sm py-4" 
           asChild
         >
-          <a href="#comprar">Receber minhas mudas pagando só o frete</a>
+          <a href={checkoutUrl}>Receber minhas mudas pagando só o frete</a>
         </Button>
       </div>
     </>
