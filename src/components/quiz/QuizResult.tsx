@@ -7,7 +7,8 @@ interface QuizResultProps {
 
 const QuizResult = ({ onContinue }: QuizResultProps) => {
   return (
-    <div className="animate-fade-in-up text-center">
+    // pb-24 ensures button is visible above mobile footer
+    <div className="animate-fade-in-up text-center pb-24 sm:pb-0">
       {/* Success icon */}
       <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
         <CheckCircle className="w-8 h-8 text-primary" />
