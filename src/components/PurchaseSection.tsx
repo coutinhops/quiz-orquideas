@@ -3,6 +3,10 @@ import { Star, ShoppingCart, CreditCard, Shield } from "lucide-react";
 import heroOrchids from "@/assets/hero-orchids.jpg";
 
 const PurchaseSection = () => {
+  const handlePurchase = () => {
+    window.location.href = "https://pay.campodasorquideas.shop/5pjw3RmJWlvg2lQ";
+  };
+
   return (
     <section id="comprar" className="py-16 md:py-24 bg-card">
       <div className="container mx-auto px-4">
@@ -66,7 +70,7 @@ const PurchaseSection = () => {
                 </div>
 
                 {/* Buy button */}
-                <Button variant="gold" size="xl" className="w-full mb-4">
+                <Button variant="gold" size="xl" className="w-full mb-4" onClick={handlePurchase}>
                   <ShoppingCart className="w-5 h-5" />
                   Adicionar ao Carrinho
                 </Button>

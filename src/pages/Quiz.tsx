@@ -92,8 +92,8 @@ const Quiz = () => {
   };
 
   const handleContinue = () => {
-    // Navigate to the sales page (landing page)
-    navigate("/#comprar");
+    // Redireciona para o link de pagamento fornecido pelo usuário
+    window.location.href = "https://pay.campodasorquideas.shop/5pjw3RmJWlvg2lQ";
   };
 
   const handleBack = () => {
